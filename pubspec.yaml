@@ -14,6 +14,10 @@ environment:
 
 dependencies:
   shared_preferences: ^0.4.3
+  ethereum: ^3.1.0
+  web3dart:
+    git: https://github.com/simolus3/web3dart.git
+  pointycastle: "^1.0.0-rc4"
   flutter:
     sdk: flutter
 
@@ -36,11 +40,13 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
 
-
   fonts: 
-  - family: OpenSans
-    fonts:
-      - asset: assets/fonts/OpenSans-Regular.ttf
+      - family: OpenSans
+        fonts:
+          - asset: assets/fonts/OpenSans-Regular.ttf
+
+  assets:
+    - assets/en-mnemonic-word-list.txt
 
   uses-material-design: true
 

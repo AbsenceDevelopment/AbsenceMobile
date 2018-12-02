@@ -1,9 +1,13 @@
 
+import 'dart:math';
+
 import 'package:absence_mobile_flutter/views/setupState.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() => runApp(new MyApp());
+void main() { 
+  runApp(new MyApp()); 
+}
 
 class MyApp extends StatefulWidget {
   // SharedPreferences prefs;
@@ -17,6 +21,7 @@ class MyApp extends StatefulWidget {
 }
 class _MyApp extends State<MyApp> {
   Future<SharedPreferences> prefs = SharedPreferences.getInstance();
+  String a = "";
   SharedPreferences prefss;
   @override
   void initState() {
@@ -26,6 +31,7 @@ class _MyApp extends State<MyApp> {
        prefss = result;
       });
     });
+
   }
   @override
   Widget build(BuildContext context) {
@@ -38,7 +44,7 @@ class _MyApp extends State<MyApp> {
     if (setupComplete) {
       return null;
     } else {
-      print("Going to setup!");
+      print("HII");
       return new SetupState();
     }
     // return new MaterialApp(

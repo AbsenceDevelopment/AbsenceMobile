@@ -1,0 +1,25 @@
+IMPORTS:
+import './hdwallet/src/bip39/hdkey.dart';
+import './hdwallet/src/bip39/mnemonic.dart';
+
+import "package:web3dart/conversions.dart";
+import "package:web3dart/web3dart.dart";
+import 'package:web3dart/src/utils/dartrandom.dart';
+
+import 'package:ethereum/ethereum.dart';
+
+HOW TO DERIVE FROM MNEMONIC
+
+      var seed = MnemonicUtils.generateMasterSeed("MNEMONIC", "");
+      var rootSeed = getRootSeed(seed);
+      var priv = EthereumStandardHDWalletPath((rootSeed));
+      var creds = Credentials.fromPrivateKeyHex(priv);
+      var address = creds.address.hex.toString();
+
+HOW TO CREATE NEW MNEMONIC
+      Future<String> mnemonic() async {
+      Random random = new Random.secure();
+      String a = (await MnemonicUtils.generateMnemonic(new DartRandom(random).nextBytes(32)))
+            .toString();
+      return a;
+      }
