@@ -18,6 +18,12 @@ dependencies:
   web3dart:
     git: https://github.com/simolus3/web3dart.git
   pointycastle: "^1.0.0-rc4"
+  flutter_secure_storage: ^3.1.2
+  dbcrypt: ^1.0.0
+  path_provider: 0.4.1
+  barcode_scan: ^0.0.4
+  outline_material_icons: ^0.1.0
+  qr_flutter: ^1.1.1
   flutter:
     sdk: flutter
 

@@ -23,3 +23,6 @@ HOW TO CREATE NEW MNEMONIC
             .toString();
       return a;
       }
+
+
+//mnemonic.split(" ").length == 12 ? print("Yes"):print("No");

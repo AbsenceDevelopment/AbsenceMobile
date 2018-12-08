@@ -1,15 +1,18 @@
+import 'package:absence_mobile_flutter/views/restoreWalletState.dart';
 import 'package:flutter/material.dart';
 import 'createWalletState.dart';
 import 'package:flutter/cupertino.dart';
+import 'scanQRState.dart';
 
 class SetupState extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return new _SetupState();
+    return new SetupStateT();
   }
 }
 
-class _SetupState extends State<SetupState> {
+class SetupStateT extends State<SetupState> {
+  static int option = 5;
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -55,13 +58,8 @@ class _SetupState extends State<SetupState> {
                           child: new RaisedButton(
                               color: Color.fromARGB(255, 255, 255, 255),
                               onPressed: () {
-                                Navigator.of(ctx, rootNavigator: true).push(
-                                  new CupertinoPageRoute<bool>(
-                                    fullscreenDialog: true,
-                                    builder: (BuildContext contextt) =>
-                                        new CreateWalletState(),
-                                  ),
-                                );
+                                option = 0;
+                                Navigator.of(context).pushNamed("/CreateWalletState");
                               },
                               child: Text("CREATE NEW WALLET",
                                   style: TextStyle(
@@ -76,7 +74,10 @@ class _SetupState extends State<SetupState> {
                           minWidth: 300,
                           child: new RaisedButton(
                               color: Color.fromARGB(255, 255, 91, 115),
-                              onPressed: () => print("Hi"),
+                              onPressed: () {
+                                option = 1;
+                                Navigator.of(context).pushNamed("/RestoreWalletState");
+                              },
                               child: Text("RESTORE FROM MNEMONIC",
                                   style: TextStyle(
                                       color: Color.fromARGB(255, 255, 255, 255),
@@ -91,7 +92,10 @@ class _SetupState extends State<SetupState> {
                           child: new RaisedButton(
                               //21, 81, 182
                               color: Color.fromARGB(255, 21, 81, 182),
-                              onPressed: () => print("Hi"),
+                              onPressed: () {
+                                option = 2;
+                                  Navigator.of(context).pushNamed("/ScanQRState");
+                              },
                               child: Text("SYNC WITH DESKTOP",
                                   style: TextStyle(
                                       color: Color.fromARGB(255, 255, 255, 255),

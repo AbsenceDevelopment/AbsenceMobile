@@ -1,3 +1,5 @@
+import 'package:absence_mobile_flutter/views/createPinState.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../hdwallet/src/bip39/hdkey.dart';
 import '../hdwallet/src/bip39/mnemonic.dart';
@@ -13,11 +15,11 @@ import 'dart:math';
 class CreateWalletState extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return new _CreateWalletState();
+    return new CreateWalletStateState();
   }
 }
 
-class _CreateWalletState extends State<CreateWalletState> {
+class CreateWalletStateState extends State<CreateWalletState> {
   Future<List<String>> mnemonic() async {
     Random random = new Random.secure();
     List<String> a = (await MnemonicUtils.generateMnemonic(
@@ -27,20 +29,20 @@ class _CreateWalletState extends State<CreateWalletState> {
     return a;
   }
 
-  List<String> mnemon = [];
+  /* static */ List<String> mnemon = [];
+  static List<String> pubMnemon = [];
   @override
   void initState() {
     super.initState();
     mnemonic().then((result) {
       setState(() {
         mnemon = result;
-        print(mnemon);
+        //print(mnemon);
         mnemon = mnemon.getRange(0, 12).toList();
-        print(mnemon);
+        pubMnemon = result.getRange(0, 12).toList();
       });
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -207,8 +209,10 @@ class _CreateWalletState extends State<CreateWalletState> {
                               minWidth: 120,
                               height: 40,
                               child: RaisedButton(
-                                onPressed: () => print("Hi"),
-                                child: Text("Next",
+                                onPressed: () {
+                                 Navigator.of(context).pushNamed("/CreatePinState");
+                              },
+                                child: Text("CONTINUE",
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w800)),
