@@ -1,6 +1,11 @@
 import 'dart:async';
 
 import 'package:absence_mobile_flutter/views/createPinState.dart';
+import 'package:absence_mobile_flutter/views/createWalletState.dart';
+import 'package:absence_mobile_flutter/views/enterPinState.dart';
+import 'package:absence_mobile_flutter/views/mainWallet.dart';
+import 'package:absence_mobile_flutter/views/restoreWalletState.dart';
+import 'package:absence_mobile_flutter/views/setupState.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

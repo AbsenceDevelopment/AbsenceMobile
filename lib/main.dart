@@ -22,14 +22,14 @@ class MyApp extends StatefulWidget {
   // }
   @override
     State<StatefulWidget> createState() {
-      return new _MyApp();
+      return new MyAppS();
     }
 }
-class _MyApp extends State<MyApp> {
+class MyAppS extends State<MyApp> {
   Future<SharedPreferences> prefs = SharedPreferences.getInstance();
   String a = "";
   SharedPreferences prefss;
-  bool setupComplete = false;
+  static bool setupComplete = false;
   @override
   void initState() {
     super.initState();

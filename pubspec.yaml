@@ -22,7 +22,12 @@ dependencies:
   dbcrypt: ^1.0.0
   path_provider: 0.4.1
   barcode_scan: ^0.0.4
+  fluttertoast: ^2.2.2
   outline_material_icons: ^0.1.0
+  rounded_modal: ^1.0.0
+  modal_drawer_handle: ^1.0.4
+
+  http: ^0.12.0
   qr_flutter: ^1.1.1
   flutter:
     sdk: flutter
@@ -50,9 +55,25 @@ flutter:
       - family: OpenSans
         fonts:
           - asset: assets/fonts/OpenSans-Regular.ttf
+      - family: Poppins
+        fonts:
+          - asset: assets/fonts/Poppins-SemiBold.ttf
+            weight: 600
 
   assets:
     - assets/en-mnemonic-word-list.txt
+    - assets/icons/ethereum.png
+    - assets/icons/logo.png
+    - assets/icons/new-wallet.png
+    - assets/icons/copy-address@4.png
+    - assets/icons/wallet-deselected@2.png
+    - assets/icons/wallet-selected@2.png
+    - assets/icons/send-selected@2.png
+    - assets/icons/send-deselected@2.png
+    - assets/icons/exchange-selected@2.png
+    - assets/icons/exchange-deselected@2.png
+    - assets/icons/settings-selected@2.png
+    - assets/icons/settings-deselected@2.png
 
   uses-material-design: true
 

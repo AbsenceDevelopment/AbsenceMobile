@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:absence_mobile_flutter/main.dart';
 import 'package:absence_mobile_flutter/views/enterPinState.dart';
 import 'package:absence_mobile_flutter/views/restoreWalletState.dart';
 import 'package:absence_mobile_flutter/views/scanQRState.dart';
@@ -145,12 +148,12 @@ class _CreatePinState extends State<CreatePinState> {
                                         if (passwordFirst.text ==
                                             passwordSecond.text) {
                                           if (SetupStateT.option == 0) {
-                                            var mnemonic =
-                                                CreateWalletStateState.pubMnemon
-                                                    .join(" ");
+                                            var mnemonic = new List<String>();
+                                            mnemonic.add(CreateWalletStateState.pubMnemon
+                                                    .join(" "));
                                             storage.write(
                                                 key: "mnemonic",
-                                                value: mnemonic);
+                                                value: json.encode(mnemonic));
                                             print("Written Mnemonic");
                                             storage.write(
                                                 key: "hashedPW",
@@ -161,11 +164,11 @@ class _CreatePinState extends State<CreatePinState> {
                                             prefss.setBool(
                                                 "setupComplete", true);
                                           } else if (SetupStateT.option == 1) {
-                                            var mnemonic =
-                                                RestoreWalletStateState.mnemons;
+                                            var mnemonic = new List<String>();
+                                            mnemonic.add(RestoreWalletStateState.mnemons);
                                             storage.write(
                                                 key: "mnemonic",
-                                                value: mnemonic);
+                                                value: json.encode(mnemonic));
                                             print("Written Mnemonic");
                                             storage.write(
                                                 key: "hashedPW",
@@ -176,11 +179,11 @@ class _CreatePinState extends State<CreatePinState> {
                                             prefss.setBool(
                                                 "setupComplete", true);
                                           } else {
-                                            var mnemonic =
-                                                ScanStateState.barcode;
+                                            var mnemonic = new List<String>();
+                                            mnemonic.add(ScanStateState.barcode);
                                             storage.write(
                                                 key: "mnemonic",
-                                                value: mnemonic);
+                                                value: json.encode(mnemonic));
                                             print("Written Mnemonic");
                                             storage.write(
                                                 key: "hashedPW",

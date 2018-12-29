@@ -195,8 +195,8 @@ List<Uint8List> CKDpub(Uint8List Kpar, Uint8List Cpar, int index) {
   chainCodeKeyPair[0] = Ki;
   chainCodeKeyPair[1] = Ci;
 
-  print("Ci : ${bytesToHex(Ci)}");
-  print("Ki : ${bytesToHex(Ki)}");
+  // print("Ci : ${bytesToHex(Ci)}");
+  // print("Ki : ${bytesToHex(Ki)}");
 
   return chainCodeKeyPair; // Hold both the child private key and the child chain code
 }
@@ -206,44 +206,44 @@ List<Uint8List> CKDpub(Uint8List Kpar, Uint8List Cpar, int index) {
 String EthereumStandardHDWalletPath(Uint8List masterExtendedKey) {
   var _44_HardenedExtendedKey =
       CKDprivHardened(masterExtendedKey, 44).expand((i) => i).toList();
-  print(bytesToHex(_44_HardenedExtendedKey));
+ // print(bytesToHex(_44_HardenedExtendedKey));
 
   var _60_HardenedExtendedKey =
       CKDprivHardened(new Uint8List.fromList(_44_HardenedExtendedKey), 60)
           .expand((i) => i)
           .toList();
-  print(bytesToHex(_60_HardenedExtendedKey));
+  //print(bytesToHex(_60_HardenedExtendedKey));
 
   var _0_HardenedExtendedKey =
       CKDprivHardened(new Uint8List.fromList(_60_HardenedExtendedKey), 0)
           .expand((i) => i)
           .toList();
-  print("_0_HardenedExtendedKey: ${bytesToHex(_0_HardenedExtendedKey)}");
+  //print("_0_HardenedExtendedKey: ${bytesToHex(_0_HardenedExtendedKey)}");
 
   var ckDprivNonHardened1 =
       CKDprivNonHardened(new Uint8List.fromList(_0_HardenedExtendedKey), 0);
 
   var _0_ExtendedKey1 = ckDprivNonHardened1.expand((i) => i).toList();
 
-  print("_0_ExtendedKey1: ${bytesToHex(_0_ExtendedKey1)}");
+ // print("_0_ExtendedKey1: ${bytesToHex(_0_ExtendedKey1)}");
 
   var _0_PublicKey = getCompressedPubKey(
       "04" + bytesToHex(privateKeyToPublic(ckDprivNonHardened1[0])));
 
-  print("/m/44'/60'/0'/0 Public Key: ${_0_PublicKey}");
+ // print("/m/44'/60'/0'/0 Public Key: ${_0_PublicKey}");
 
   var ckDprivNonHardened2 =
       CKDprivNonHardened(new Uint8List.fromList(_0_ExtendedKey1), 0);
 
   var _0_ExtendedKey2 = ckDprivNonHardened2.expand((i) => i).toList();
 
-  print("//TESTV2//: ${bytesToHex(ckDprivNonHardened2[0])}");
-  print("_0_ExtendedKey2: ${bytesToHex(_0_ExtendedKey2)} //TEST//");
+  //print("//TESTV2//: ${bytesToHex(ckDprivNonHardened2[0])}");
+  //print("_0_ExtendedKey2: ${bytesToHex(_0_ExtendedKey2)} //TEST//");
 
   var _0_PublicKey2 = getCompressedPubKey(
       "04" + bytesToHex(privateKeyToPublic(ckDprivNonHardened2[0])));
 
-  print("/m/44'/60'/0'/0/0 Public Key: ${_0_PublicKey2} //TEST//");
+  //print("/m/44'/60'/0'/0/0 Public Key: ${_0_PublicKey2} //TEST//");
 
   // TODO: Derive the exact same child public key from the CDKPub Derivation Scheme
 
@@ -256,8 +256,8 @@ String EthereumStandardHDWalletPath(Uint8List masterExtendedKey) {
   var cpubK = getCompressedPubKey("04" +
       cpubKNonCompressed);
 
-  print("/m/44'/60'/0'/0/0 Public Key: ${cpubK} | == CKDPub Reproduction == ");
-  print("/m/44'/60'/0'/0/0 Public Full Key: ${cpubKNonCompressed}  ");
+  // print("/m/44'/60'/0'/0/0 Public Key: ${cpubK} | == CKDPub Reproduction == ");
+  // print("/m/44'/60'/0'/0/0 Public Full Key: ${cpubKNonCompressed}  ");
 
   return "${bytesToHex(ckDprivNonHardened2[0])}";
 }

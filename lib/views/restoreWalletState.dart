@@ -1,4 +1,9 @@
 import 'package:absence_mobile_flutter/views/createPinState.dart';
+import 'package:absence_mobile_flutter/views/createWalletState.dart';
+import 'package:absence_mobile_flutter/views/enterPinState.dart';
+import 'package:absence_mobile_flutter/views/mainWallet.dart';
+import 'package:absence_mobile_flutter/views/scanQRState.dart';
+import 'package:absence_mobile_flutter/views/setupState.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../hdwallet/src/bip39/hdkey.dart';
